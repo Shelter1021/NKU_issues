@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/back"
+    ><!-- 添加一个垂直的线性布局 -->
+    <TextView
+        android:id="@+id/title"
+        android:gravity="center_horizontal"
+        android:textSize="20px"
+        android:layout_width="fill_parent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <TextView
+        android:id="@+id/myTextView1"
+        android:textSize="30px"
+        android:layout_width="fill_parent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <TextView
+        android:id="@+id/myTextView2"
+        android:textSize="30px"
+        android:layout_width="fill_parent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <TextView
+        android:id="@+id/myTextView3"
+        android:textSize="30px"
+        android:layout_width="fill_parent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        >
+    </TextView>
+    <TextView
+        android:id="@+id/myTextView4"
+        android:textSize="30px"
+        android:layout_width="fill_parent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/myTextView5"
+        android:textSize="30px"
+        android:layout_width="fill_parent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        >
+    </TextView>
+</LinearLayout>
