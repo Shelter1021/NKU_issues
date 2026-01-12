@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算机网络实验 - Web服务器配置</title>
+    <style>
+        /* CSS 样式重置与布局优化 */
+        body { font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; line-height: 1.6; margin: 0; background-color: #f0f2f5; color: #333; }
+        .container { max-width: 1000px; margin: 30px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        
+        header { border-bottom: 3px solid #1a73e8; padding-bottom: 20px; margin-bottom: 30px; text-align: center; }
+        h1 { margin: 0; color: #1a73e8; font-size: 2.2em; }
+        .subtitle { color: #666; margin-top: 10px; }
+
+        /* 个人信息卡片设计 - 已修改对齐方式 */
+        .student-card { background: #e8f0fe; border-left: 5px solid #1a73e8; padding: 20px; border-radius: 4px; margin-bottom: 30px; }
+        
+        .info-row { 
+            display: grid;               /* 使用 Grid 布局 */
+            grid-template-columns: 1fr 1fr; /* 左右各占 50%，建立中轴线 */
+            width: 60%;                  /* 限制整体宽度，让内容紧凑一些 */
+            margin: 10px auto;           /* 让整行在卡片中居中 */
+            font-size: 1.1em; 
+            border-bottom: 1px dashed #cce0ff; /* 虚线分割 */
+            padding-bottom: 5px;
+        }
+
+        .info-label { 
+            text-align: right;           /* 标签文字靠右对齐 */
+            padding-right: 30px;         /* 标签与中轴线的间距 */
+            font-weight: bold; 
+            color: #555; 
+        }
+
+        .info-val {      
+            text-align: left;            /* 内容文字靠左对齐 */
+            padding-left: 30px;          /* 内容与中轴线的间距 */
+        }
+
+        /* 图片网格布局 */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .photo-card { background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .photo-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .photo-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+        .caption { padding: 15px; text-align: center; font-size: 0.9em; color: #666; background: #fafafa; border-top: 1px solid #eee; }
+        
+        footer { text-align: center; margin-top: 50px; font-size: 0.8em; color: #999; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Web 服务器配置与 HTTP 分析</h1>
+            <p class="subtitle">计算机网络实验三</p>
+        </header>
+
+        <section class="student-card">
+            <div class="info-row"><span class="info-label">专业：</span><span class="info-val">物联网工程</span></div>
+            <div class="info-row"><span class="info-label">学号：</span><span class="info-val">2310422</span></div>
+            <div class="info-row"><span class="info-label">姓名：</span><span class="info-val">谢小珂</span></div>
+        </section>
+
+        <section class="gallery-section">
+            <h2 style="border-left: 4px solid #1a73e8; padding-left: 10px;">实验图片展示</h2>
+            <p style="margin-bottom: 20px; color: #666;">以下是通过本地 Web 服务器加载的 6 幅实验图像：</p>
+            <div class="gallery">
+                <div class="photo-card"><img src="image/1.jpg" alt="Img1"><div class="caption">图  1 </div></div>
+                <div class="photo-card"><img src="image/2.jpg" alt="Img2"><div class="caption">图 2 </div></div>
+                <div class="photo-card"><img src="image/3.jpg" alt="Img3"><div class="caption">图 3 </div></div>
+                <div class="photo-card"><img src="image/4.jpg" alt="Img4"><div class="caption">图 4 </div></div>
+                <div class="photo-card"><img src="image/5.jpg" alt="Img5"><div class="caption">图 5 </div></div>
+                <div class="photo-card"><img src="image/6.jpg" alt="Img6"><div class="caption">图 6 </div></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 谢小珂 | 物联网工程 | 计算机网络实验</p>
+        </footer>
+    </div>
+</body>
+</html>
