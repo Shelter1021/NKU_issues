@@ -1,0 +1,59 @@
+DROP DATABASE IF EXISTS fhope_lab;
+CREATE DATABASE fhope_lab DEFAULT CHARACTER SET utf8mb4;
+USE fhope_lab;
+
+DROP FUNCTION IF EXISTS FHInsert;
+DROP FUNCTION IF EXISTS FHSearch;
+DROP FUNCTION IF EXISTS FHUpdate;
+DROP FUNCTION IF EXISTS FHStart;
+DROP FUNCTION IF EXISTS FHEnd;
+DROP FUNCTION IF EXISTS FHReset;
+DROP FUNCTION IF EXISTS FHLeafSplits;
+DROP FUNCTION IF EXISTS FHInternalSplits;
+DROP FUNCTION IF EXISTS FHTotal;
+
+CREATE FUNCTION FHInsert RETURNS INTEGER SONAME 'libfhope.so';
+CREATE FUNCTION FHSearch RETURNS INTEGER SONAME 'libfhope.so';
+CREATE FUNCTION FHUpdate RETURNS INTEGER SONAME 'libfhope.so';
+CREATE FUNCTION FHStart RETURNS INTEGER SONAME 'libfhope.so';
+CREATE FUNCTION FHEnd RETURNS INTEGER SONAME 'libfhope.so';
+CREATE FUNCTION FHReset RETURNS INTEGER SONAME 'libfhope.so';
+CREATE FUNCTION FHLeafSplits RETURNS INTEGER SONAME 'libfhope.so';
+CREATE FUNCTION FHInternalSplits RETURNS INTEGER SONAME 'libfhope.so';
+CREATE FUNCTION FHTotal RETURNS INTEGER SONAME 'libfhope.so';
+
+CREATE TABLE example (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    encoding BIGINT NOT NULL,
+    ciphertext VARCHAR(1024) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_encoding (encoding),
+    INDEX idx_ct_prefix (ciphertext(64))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DELIMITER //
+
+DROP PROCEDURE IF EXISTS pro_insert//
+CREATE PROCEDURE pro_insert(IN pos BIGINT, IN ct VARCHAR(1024))
+BEGIN
+    DECLARE code BIGINT DEFAULT 0;
+
+    SET code = FHInsert(pos, ct);
+    INSERT INTO example(encoding, ciphertext) VALUES(code, ct);
+
+    IF code = 0 THEN
+        UPDATE example
+        SET encoding = FHUpdate(ciphertext)
+        WHERE (encoding >= FHStart() AND encoding < FHEnd())
+           OR encoding = 0;
+    END IF;
+END//
+
+DROP PROCEDURE IF EXISTS pro_reset//
+CREATE PROCEDURE pro_reset()
+BEGIN
+    TRUNCATE TABLE example;
+    SELECT FHReset() AS reset_ok;
+END//
+
+DELIMITER ;
