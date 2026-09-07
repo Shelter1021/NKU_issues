@@ -1,0 +1,11 @@
+{
+  "model": "MicroMobileNet",
+  "params": 811850,
+  "epochs": 120,
+  "best_epoch": 117,
+  "best_val_acc": 0.9328,
+  "best_val_loss": 0.6689816391944885,
+  "test_acc": 0.9326,
+  "test_loss": 0.671793489074707,
+  "total_time": "19m 42s"
+}

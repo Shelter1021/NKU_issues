@@ -1,0 +1,11 @@
+{
+  "model": "MicroDenseNet",
+  "params": 910090,
+  "epochs": 120,
+  "best_epoch": 114,
+  "best_val_acc": 0.9542,
+  "best_val_loss": 0.6151849851608276,
+  "test_acc": 0.9531,
+  "test_loss": 0.6196246187210083,
+  "total_time": "48m 55s"
+}

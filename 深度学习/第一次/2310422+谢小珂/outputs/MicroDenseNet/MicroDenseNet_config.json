@@ -1,0 +1,24 @@
+{
+  "args": {
+    "model": "densenet",
+    "epochs": 120,
+    "batch_size": 128,
+    "lr": 0.05,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "label_smoothing": 0.1,
+    "warmup_epochs": 5,
+    "seed": 2026,
+    "num_workers": 4,
+    "data_dir": "K:\\Deeplearning\\CNN_CIFAR10\\CNN_CIFAR10_FullScore\\data",
+    "output_dir": "K:\\Deeplearning\\CNN_CIFAR10\\CNN_CIFAR10_FullScore\\outputs",
+    "no_download": false,
+    "basic_aug": false,
+    "amp": true,
+    "no_amp": false,
+    "use_fake_data": false,
+    "fast_dev_run": false
+  },
+  "model_name": "MicroDenseNet",
+  "num_params": 910090
+}

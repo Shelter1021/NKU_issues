@@ -1,0 +1,11 @@
+{
+  "model": "MicroRes2Net",
+  "params": 644490,
+  "epochs": 120,
+  "best_epoch": 120,
+  "best_val_acc": 0.9462,
+  "best_val_loss": 0.6374142033576965,
+  "test_acc": 0.9405,
+  "test_loss": 0.6398712949752807,
+  "total_time": "25m 2s"
+}

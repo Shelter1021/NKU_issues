@@ -1,0 +1,11 @@
+{
+  "model": "OriginalCNN",
+  "params": 62006,
+  "epochs": 120,
+  "best_epoch": 115,
+  "best_val_acc": 0.7386,
+  "best_val_loss": 1.1060891979217529,
+  "test_acc": 0.7399,
+  "test_loss": 1.1045009759902955,
+  "total_time": "15m 7s"
+}

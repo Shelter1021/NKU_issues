@@ -1,0 +1,234 @@
+MicroRes2Net(
+  (stem): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace=True)
+  )
+  (stage1): Sequential(
+    (0): Res2Block(
+      (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (convs): ModuleList(
+        (0-2): 3 x Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bns): ModuleList(
+        (0-2): 3 x BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (conv3): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Identity()
+      (relu): ReLU(inplace=True)
+    )
+    (1): Res2Block(
+      (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (convs): ModuleList(
+        (0-2): 3 x Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bns): ModuleList(
+        (0-2): 3 x BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (conv3): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Identity()
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (stage2): Sequential(
+    (0): Res2Block(
+      (conv1): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (convs): ModuleList(
+        (0-2): 3 x Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bns): ModuleList(
+        (0-2): 3 x BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (conv3): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (relu): ReLU(inplace=True)
+    )
+    (1): Res2Block(
+      (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (convs): ModuleList(
+        (0-2): 3 x Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bns): ModuleList(
+        (0-2): 3 x BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (conv3): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Identity()
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (stage3): Sequential(
+    (0): Res2Block(
+      (conv1): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (convs): ModuleList(
+        (0-2): 3 x Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bns): ModuleList(
+        (0-2): 3 x BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (conv3): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (relu): ReLU(inplace=True)
+    )
+    (1): Res2Block(
+      (conv1): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (convs): ModuleList(
+        (0-2): 3 x Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (bns): ModuleList(
+        (0-2): 3 x BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (conv3): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (shortcut): Identity()
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (pool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (dropout): Dropout(p=0.25, inplace=False)
+  (fc): Linear(in_features=256, out_features=10, bias=True)
+)
+
+==========================================================================================
+Layer (type:depth-idx)                   Output Shape              Param #
+==========================================================================================
+MicroRes2Net                             [1, 10]                   --
+├─Sequential: 1-1                        [1, 64, 32, 32]           --
+│    └─Conv2d: 2-1                       [1, 64, 32, 32]           1,728
+│    └─BatchNorm2d: 2-2                  [1, 64, 32, 32]           128
+│    └─ReLU: 2-3                         [1, 64, 32, 32]           --
+├─Sequential: 1-2                        [1, 64, 32, 32]           --
+│    └─Res2Block: 2-4                    [1, 64, 32, 32]           --
+│    │    └─Identity: 3-1                [1, 64, 32, 32]           --
+│    │    └─Conv2d: 3-2                  [1, 64, 32, 32]           4,096
+│    │    └─BatchNorm2d: 3-3             [1, 64, 32, 32]           128
+│    │    └─ReLU: 3-4                    [1, 64, 32, 32]           --
+│    │    └─ModuleList: 3-11             --                        (recursive)
+│    │    └─ModuleList: 3-12             --                        (recursive)
+│    │    └─ReLU: 3-7                    [1, 16, 32, 32]           --
+│    │    └─ModuleList: 3-11             --                        (recursive)
+│    │    └─ModuleList: 3-12             --                        (recursive)
+│    │    └─ReLU: 3-10                   [1, 16, 32, 32]           --
+│    │    └─ModuleList: 3-11             --                        (recursive)
+│    │    └─ModuleList: 3-12             --                        (recursive)
+│    │    └─ReLU: 3-13                   [1, 16, 32, 32]           --
+│    │    └─Conv2d: 3-14                 [1, 64, 32, 32]           4,096
+│    │    └─BatchNorm2d: 3-15            [1, 64, 32, 32]           128
+│    │    └─ReLU: 3-16                   [1, 64, 32, 32]           --
+│    └─Res2Block: 2-5                    [1, 64, 32, 32]           --
+│    │    └─Identity: 3-17               [1, 64, 32, 32]           --
+│    │    └─Conv2d: 3-18                 [1, 64, 32, 32]           4,096
+│    │    └─BatchNorm2d: 3-19            [1, 64, 32, 32]           128
+│    │    └─ReLU: 3-20                   [1, 64, 32, 32]           --
+│    │    └─ModuleList: 3-27             --                        (recursive)
+│    │    └─ModuleList: 3-28             --                        (recursive)
+│    │    └─ReLU: 3-23                   [1, 16, 32, 32]           --
+│    │    └─ModuleList: 3-27             --                        (recursive)
+│    │    └─ModuleList: 3-28             --                        (recursive)
+│    │    └─ReLU: 3-26                   [1, 16, 32, 32]           --
+│    │    └─ModuleList: 3-27             --                        (recursive)
+│    │    └─ModuleList: 3-28             --                        (recursive)
+│    │    └─ReLU: 3-29                   [1, 16, 32, 32]           --
+│    │    └─Conv2d: 3-30                 [1, 64, 32, 32]           4,096
+│    │    └─BatchNorm2d: 3-31            [1, 64, 32, 32]           128
+│    │    └─ReLU: 3-32                   [1, 64, 32, 32]           --
+├─Sequential: 1-3                        [1, 128, 16, 16]          --
+│    └─Res2Block: 2-6                    [1, 128, 16, 16]          --
+│    │    └─Sequential: 3-33             [1, 128, 16, 16]          8,448
+│    │    └─Conv2d: 3-34                 [1, 128, 16, 16]          8,192
+│    │    └─BatchNorm2d: 3-35            [1, 128, 16, 16]          256
+│    │    └─ReLU: 3-36                   [1, 128, 16, 16]          --
+│    │    └─ModuleList: 3-43             --                        (recursive)
+│    │    └─ModuleList: 3-44             --                        (recursive)
+│    │    └─ReLU: 3-39                   [1, 32, 16, 16]           --
+│    │    └─ModuleList: 3-43             --                        (recursive)
+│    │    └─ModuleList: 3-44             --                        (recursive)
+│    │    └─ReLU: 3-42                   [1, 32, 16, 16]           --
+│    │    └─ModuleList: 3-43             --                        (recursive)
+│    │    └─ModuleList: 3-44             --                        (recursive)
+│    │    └─ReLU: 3-45                   [1, 32, 16, 16]           --
+│    │    └─Conv2d: 3-46                 [1, 128, 16, 16]          16,384
+│    │    └─BatchNorm2d: 3-47            [1, 128, 16, 16]          256
+│    │    └─ReLU: 3-48                   [1, 128, 16, 16]          --
+│    └─Res2Block: 2-7                    [1, 128, 16, 16]          --
+│    │    └─Identity: 3-49               [1, 128, 16, 16]          --
+│    │    └─Conv2d: 3-50                 [1, 128, 16, 16]          16,384
+│    │    └─BatchNorm2d: 3-51            [1, 128, 16, 16]          256
+│    │    └─ReLU: 3-52                   [1, 128, 16, 16]          --
+│    │    └─ModuleList: 3-59             --                        (recursive)
+│    │    └─ModuleList: 3-60             --                        (recursive)
+│    │    └─ReLU: 3-55                   [1, 32, 16, 16]           --
+│    │    └─ModuleList: 3-59             --                        (recursive)
+│    │    └─ModuleList: 3-60             --                        (recursive)
+│    │    └─ReLU: 3-58                   [1, 32, 16, 16]           --
+│    │    └─ModuleList: 3-59             --                        (recursive)
+│    │    └─ModuleList: 3-60             --                        (recursive)
+│    │    └─ReLU: 3-61                   [1, 32, 16, 16]           --
+│    │    └─Conv2d: 3-62                 [1, 128, 16, 16]          16,384
+│    │    └─BatchNorm2d: 3-63            [1, 128, 16, 16]          256
+│    │    └─ReLU: 3-64                   [1, 128, 16, 16]          --
+├─Sequential: 1-4                        [1, 256, 8, 8]            --
+│    └─Res2Block: 2-8                    [1, 256, 8, 8]            --
+│    │    └─Sequential: 3-65             [1, 256, 8, 8]            33,280
+│    │    └─Conv2d: 3-66                 [1, 256, 8, 8]            32,768
+│    │    └─BatchNorm2d: 3-67            [1, 256, 8, 8]            512
+│    │    └─ReLU: 3-68                   [1, 256, 8, 8]            --
+│    │    └─ModuleList: 3-75             --                        (recursive)
+│    │    └─ModuleList: 3-76             --                        (recursive)
+│    │    └─ReLU: 3-71                   [1, 64, 8, 8]             --
+│    │    └─ModuleList: 3-75             --                        (recursive)
+│    │    └─ModuleList: 3-76             --                        (recursive)
+│    │    └─ReLU: 3-74                   [1, 64, 8, 8]             --
+│    │    └─ModuleList: 3-75             --                        (recursive)
+│    │    └─ModuleList: 3-76             --                        (recursive)
+│    │    └─ReLU: 3-77                   [1, 64, 8, 8]             --
+│    │    └─Conv2d: 3-78                 [1, 256, 8, 8]            65,536
+│    │    └─BatchNorm2d: 3-79            [1, 256, 8, 8]            512
+│    │    └─ReLU: 3-80                   [1, 256, 8, 8]            --
+│    └─Res2Block: 2-9                    [1, 256, 8, 8]            --
+│    │    └─Identity: 3-81               [1, 256, 8, 8]            --
+│    │    └─Conv2d: 3-82                 [1, 256, 8, 8]            65,536
+│    │    └─BatchNorm2d: 3-83            [1, 256, 8, 8]            512
+│    │    └─ReLU: 3-84                   [1, 256, 8, 8]            --
+│    │    └─ModuleList: 3-91             --                        (recursive)
+│    │    └─ModuleList: 3-92             --                        (recursive)
+│    │    └─ReLU: 3-87                   [1, 64, 8, 8]             --
+│    │    └─ModuleList: 3-91             --                        (recursive)
+│    │    └─ModuleList: 3-92             --                        (recursive)
+│    │    └─ReLU: 3-90                   [1, 64, 8, 8]             --
+│    │    └─ModuleList: 3-91             --                        (recursive)
+│    │    └─ModuleList: 3-92             --                        (recursive)
+│    │    └─ReLU: 3-93                   [1, 64, 8, 8]             --
+│    │    └─Conv2d: 3-94                 [1, 256, 8, 8]            65,536
+│    │    └─BatchNorm2d: 3-95            [1, 256, 8, 8]            512
+│    │    └─ReLU: 3-96                   [1, 256, 8, 8]            --
+├─AdaptiveAvgPool2d: 1-5                 [1, 256, 1, 1]            --
+├─Dropout: 1-6                           [1, 256]                  --
+├─Linear: 1-7                            [1, 10]                   2,570
+==========================================================================================
+Total params: 644,490
+Trainable params: 644,490
+Non-trainable params: 0
+Total mult-adds (Units.MEGABYTES): 94.58
+==========================================================================================
+Input size (MB): 0.01
+Forward/backward pass size (MB): 11.93
+Params size (MB): 2.58
+Estimated Total Size (MB): 14.52
+==========================================================================================
