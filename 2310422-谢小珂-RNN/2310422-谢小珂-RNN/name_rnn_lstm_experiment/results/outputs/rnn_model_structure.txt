@@ -1,5 +1,0 @@
-CharRNN(
-  (rnn): RNN(58, 256)
-  (h2o): Linear(in_features=256, out_features=18, bias=True)
-  (softmax): LogSoftmax(dim=1)
-)
